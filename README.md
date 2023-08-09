@@ -12,7 +12,7 @@ initially and, later, throughout France.
 
 ## Contribute to the project
 ChaTop App is available on my github via the following link , 
-it must be clone with command line "git clone https://github.com/".
+it must be clone with command line "git clone https://github.com/Sab-Ben/Developpez-le-back-end-en-utilisant-Java-et-Spring.git".
 When the project is cloned, it must be create a database with MySQL 
 and use file script.sql available via 
 chaTop-Backend/src/main/resources/script.sql
