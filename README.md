@@ -13,7 +13,7 @@ initially and, later, throughout France.
 - Docker
 - AWS S3
 
-- ## Authors
+## Authors
 Our code squad: Joffrey from OpenClassrooms about the Frontend part of the application, 
 and Sabrina student from OpenClassrooms about the Backend part of the application.
 
