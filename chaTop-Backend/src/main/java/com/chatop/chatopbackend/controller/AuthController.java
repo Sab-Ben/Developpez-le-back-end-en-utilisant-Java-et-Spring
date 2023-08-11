@@ -5,7 +5,6 @@ import com.chatop.chatopbackend.dto.request.RegisterUserDto;
 import com.chatop.chatopbackend.dto.response.JwtResponse;
 import com.chatop.chatopbackend.dto.response.UserResponseDto;
 import com.chatop.chatopbackend.service.AuthService;
-import com.chatop.chatopbackend.service.JwtProvider;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -23,9 +22,6 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
-
-    @Autowired
-    private JwtProvider jwtProvider;
 
     @GetMapping("/me")
     @Operation(summary = "Gets the user information", security = @SecurityRequirement(name = "bearerAuth"))
