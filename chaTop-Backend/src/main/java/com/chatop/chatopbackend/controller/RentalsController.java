@@ -5,7 +5,6 @@ import com.chatop.chatopbackend.dto.request.UpdateRentalDto;
 import com.chatop.chatopbackend.dto.response.RentalResponse;
 import com.chatop.chatopbackend.dto.response.RentalsResponse;
 import com.chatop.chatopbackend.dto.response.MessageResponse;
-import com.chatop.chatopbackend.interfaces.SecurityController;
 import com.chatop.chatopbackend.service.rental.RentalsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

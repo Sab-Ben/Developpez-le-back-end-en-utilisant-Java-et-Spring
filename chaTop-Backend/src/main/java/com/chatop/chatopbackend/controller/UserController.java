@@ -1,6 +1,5 @@
 package com.chatop.chatopbackend.controller;
 
-import com.chatop.chatopbackend.interfaces.SecurityController;
 import com.chatop.chatopbackend.dto.response.UserResponseDto;
 import com.chatop.chatopbackend.service.user.SearchUserService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;

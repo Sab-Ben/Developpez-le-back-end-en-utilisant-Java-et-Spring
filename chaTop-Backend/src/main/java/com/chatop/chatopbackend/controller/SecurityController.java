@@ -1,4 +1,4 @@
-package com.chatop.chatopbackend.interfaces;
+package com.chatop.chatopbackend.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 

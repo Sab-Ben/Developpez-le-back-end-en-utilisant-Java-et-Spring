@@ -2,7 +2,6 @@ package com.chatop.chatopbackend.controller;
 
 import com.chatop.chatopbackend.dto.request.CreateMessageDto;
 import com.chatop.chatopbackend.dto.response.MessageResponse;
-import com.chatop.chatopbackend.interfaces.SecurityController;
 import com.chatop.chatopbackend.service.message.MessageService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

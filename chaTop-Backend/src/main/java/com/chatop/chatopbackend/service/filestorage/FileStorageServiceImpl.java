@@ -2,7 +2,6 @@ package com.chatop.chatopbackend.service.filestorage;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.chatop.chatopbackend.exceptions.FileNameException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;

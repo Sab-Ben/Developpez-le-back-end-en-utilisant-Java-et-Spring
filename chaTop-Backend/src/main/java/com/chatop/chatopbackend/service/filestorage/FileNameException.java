@@ -1,4 +1,4 @@
-package com.chatop.chatopbackend.exceptions;
+package com.chatop.chatopbackend.service.filestorage;
 
 public class FileNameException extends Exception{
     public FileNameException(String message){
