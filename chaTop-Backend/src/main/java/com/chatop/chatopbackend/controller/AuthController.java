@@ -4,11 +4,7 @@ import com.chatop.chatopbackend.dto.request.LoginDto;
 import com.chatop.chatopbackend.dto.request.RegisterUserDto;
 import com.chatop.chatopbackend.dto.response.JwtResponse;
 import com.chatop.chatopbackend.dto.response.UserResponseDto;
-<<<<<<< HEAD
 import com.chatop.chatopbackend.service.auth.AuthService;
-=======
-import com.chatop.chatopbackend.service.AuthService;
->>>>>>> 5a971fe2ca866f06f0e058a77cb6f8504180c336
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
