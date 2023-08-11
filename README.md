@@ -14,14 +14,23 @@ initially and, later, throughout France.
 - AWS S3
 
 ## Authors
+<<<<<<< HEAD
 Our code squad: Joffrey from OpenClassrooms about the Frontend part of the application,
+=======
+Our code squad: Joffrey from OpenClassrooms about the Frontend part of the application, 
+>>>>>>> 5a971fe2ca866f06f0e058a77cb6f8504180c336
 and Sabrina student from OpenClassrooms about the Backend part of the application.
 
 ## Contribute to the project
 ChaTop App is available on my github via the following link "https://github.com/Sab-Ben/Developpez-le-back-end-en-utilisant-Java-et-Spring.git", 
+<<<<<<< HEAD
 it must be clone with command line "git clone https://github.com/Sab-Ben/Developpez-le-back-end-en-utilisant-Java-et-Spring.git".
 When the project is cloned, it must be create a database with MySQL 
 and use file script.sql available via chaTop-Backend/src/main/resources/script.sql
+=======
+it must be clone with command line "git clone <link>".
+When the project is cloned, it must be create a database with MySQL and use file script.sql available via chaTop-Backend/src/main/resources/script.sql
+>>>>>>> 5a971fe2ca866f06f0e058a77cb6f8504180c336
 
 To install MySQL : 
 
@@ -34,7 +43,10 @@ then retrieve the information from the script.sql file and copy and paste it int
 Otherwise with MySQL Workbench : Import the sql script from the chaTop-Backend/src/main/resources/script.sql and execute it, this will create the tables
 From MySQL terminal: Use the command SOURCE </absolute/path/to/script>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5a971fe2ca866f06f0e058a77cb6f8504180c336
 ## Build
 For BackEnd App :
 
