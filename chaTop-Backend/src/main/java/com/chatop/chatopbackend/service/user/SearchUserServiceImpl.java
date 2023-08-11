@@ -1,20 +1,22 @@
-package com.chatop.chatopbackend.service;
+package com.chatop.chatopbackend.service.user;
 
 import com.chatop.chatopbackend.dto.response.UserResponseDto;
 import com.chatop.chatopbackend.entity.User;
 import com.chatop.chatopbackend.repository.UserRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class SearchUserServiceImpl implements SearchUserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
+
+    public SearchUserServiceImpl(UserRepository userRepository, ModelMapper modelMapper) {
+        this.userRepository = userRepository;
+        this.modelMapper = modelMapper;
+    }
 
     public UserResponseDto findOne(final long id){
         User user = this.userRepository.findById(id).orElse(null);

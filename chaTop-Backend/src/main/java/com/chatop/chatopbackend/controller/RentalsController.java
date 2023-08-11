@@ -6,13 +6,12 @@ import com.chatop.chatopbackend.dto.response.RentalResponse;
 import com.chatop.chatopbackend.dto.response.RentalsResponse;
 import com.chatop.chatopbackend.dto.response.MessageResponse;
 import com.chatop.chatopbackend.interfaces.SecurityController;
-import com.chatop.chatopbackend.service.RentalsService;
+import com.chatop.chatopbackend.service.rental.RentalsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +19,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("rentals")
 public class RentalsController implements SecurityController {
 
-    @Autowired
-    private RentalsService rentalsService;
+    private final RentalsService rentalsService;
+
+    public RentalsController(RentalsService rentalsService) {
+        this.rentalsService = rentalsService;
+    }
 
     @Operation(summary = "Get all rentals")
     @ApiResponses(value = {

@@ -4,15 +4,13 @@ import com.chatop.chatopbackend.dto.request.LoginDto;
 import com.chatop.chatopbackend.dto.request.RegisterUserDto;
 import com.chatop.chatopbackend.dto.response.JwtResponse;
 import com.chatop.chatopbackend.dto.response.UserResponseDto;
-import com.chatop.chatopbackend.service.AuthService;
-import com.chatop.chatopbackend.service.JwtProvider;
+import com.chatop.chatopbackend.service.auth.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,11 +19,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "auth")
 public class AuthController {
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
 
-    @Autowired
-    private JwtProvider jwtProvider;
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
     @GetMapping("/me")
     @Operation(summary = "Gets the user information", security = @SecurityRequirement(name = "bearerAuth"))

@@ -3,13 +3,12 @@ package com.chatop.chatopbackend.controller;
 import com.chatop.chatopbackend.dto.request.CreateMessageDto;
 import com.chatop.chatopbackend.dto.response.MessageResponse;
 import com.chatop.chatopbackend.interfaces.SecurityController;
-import com.chatop.chatopbackend.service.MessageService;
+import com.chatop.chatopbackend.service.message.MessageService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("messages")
 public class MessagesController implements SecurityController {
 
-    @Autowired
-    private MessageService messageService;
+    private final MessageService messageService;
+
+    public MessagesController(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200"),

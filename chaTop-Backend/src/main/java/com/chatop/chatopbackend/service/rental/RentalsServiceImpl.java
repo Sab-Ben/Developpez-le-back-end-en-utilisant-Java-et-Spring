@@ -1,4 +1,4 @@
-package com.chatop.chatopbackend.service;
+package com.chatop.chatopbackend.service.rental;
 
 import com.chatop.chatopbackend.dto.request.CreateRentalDto;
 import com.chatop.chatopbackend.dto.request.UpdateRentalDto;
@@ -8,9 +8,9 @@ import com.chatop.chatopbackend.dto.response.MessageResponse;
 import com.chatop.chatopbackend.entity.Rental;
 import com.chatop.chatopbackend.repository.RentalRepository;
 import com.chatop.chatopbackend.entity.User;
+import com.chatop.chatopbackend.service.filestorage.FileStorageServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,19 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.webjars.NotFoundException;
 
 @Service
-public class RentalsService {
+public class RentalsServiceImpl implements RentalsService {
 
-    @Autowired
-    private FileStorageService fileStorageService;
+    private final FileStorageServiceImpl fileStorageServiceImpl;
 
-    @Autowired
-    private RentalRepository rentalRepository;
+    private final RentalRepository rentalRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
+
+    public RentalsServiceImpl(FileStorageServiceImpl fileStorageServiceImpl, RentalRepository rentalRepository, ModelMapper modelMapper) {
+        this.fileStorageServiceImpl = fileStorageServiceImpl;
+        this.rentalRepository = rentalRepository;
+        this.modelMapper = modelMapper;
+    }
 
     public RentalsResponse getRentals(){
         Iterable<Rental> rentals = this.rentalRepository.findAll();
@@ -48,7 +51,7 @@ public class RentalsService {
 
     public MessageResponse create(CreateRentalDto rentalDto, Authentication authentication){
         long userId = this.getAuthorizedUserId(authentication);
-        String imagePath = this.fileStorageService.saveToS3(rentalDto.getPicture());
+        String imagePath = this.fileStorageServiceImpl.saveToS3(rentalDto.getPicture());
 
         Rental rental = this.modelMapper.map(rentalDto, Rental.class);
         rental.setOwner_id(userId);

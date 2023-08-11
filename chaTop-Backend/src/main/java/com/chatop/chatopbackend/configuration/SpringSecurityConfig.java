@@ -1,6 +1,5 @@
 package com.chatop.chatopbackend.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -16,8 +15,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SpringSecurityConfig {
 
-    @Autowired
-    public JwtFilter jwtFilter;
+    public final JwtFilter jwtFilter;
+
+    public SpringSecurityConfig(JwtFilter jwtFilter) {
+        this.jwtFilter = jwtFilter;
+    }
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {

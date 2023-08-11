@@ -1,28 +1,19 @@
-package com.chatop.chatopbackend.service;
+package com.chatop.chatopbackend.service.filestorage;
 
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.AccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectResult;
 import com.chatop.chatopbackend.exceptions.FileNameException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
-public class FileStorageService {
+public class FileStorageServiceImpl implements FileStorageService {
 
     private final AmazonS3 amazonS3;
 
-    public FileStorageService(AmazonS3 amazonS3) {
+    public FileStorageServiceImpl(AmazonS3 amazonS3) {
         this.amazonS3 = amazonS3;
     }
 

@@ -1,4 +1,4 @@
-package com.chatop.chatopbackend.service;
+package com.chatop.chatopbackend.service.auth;
 
 import com.chatop.chatopbackend.dto.request.LoginDto;
 import com.chatop.chatopbackend.dto.request.RegisterUserDto;
@@ -6,27 +6,30 @@ import com.chatop.chatopbackend.dto.response.JwtResponse;
 import com.chatop.chatopbackend.dto.response.UserResponseDto;
 import com.chatop.chatopbackend.entity.User;
 import com.chatop.chatopbackend.repository.UserRepository;
+import com.chatop.chatopbackend.service.JwtProvider;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthService {
+public class AuthServiceImpl implements AuthService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    private JwtProvider jwtProvider;
+    private final JwtProvider jwtProvider;
+
+    public AuthServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder, ModelMapper modelMapper, JwtProvider jwtProvider) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.modelMapper = modelMapper;
+        this.jwtProvider = jwtProvider;
+    }
 
     public JwtResponse register(RegisterUserDto userDto){
         String encodedPassword = bCryptPasswordEncoder.encode(userDto.getPassword());
