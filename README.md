@@ -56,4 +56,4 @@ Once Spring Boot is running, you can access to the documentation with Swagger UI
 the following address: http://localhost:3001/api/swagger-ui/index.html#/
 
 ## Licensing
-This project was created by OpenClassrooms for the training course "Dévéloppeur Fullstack Java-Angular".
+This project was created by OpenClassrooms for the training course "Développeur Fullstack Java-Angular".
